@@ -9,7 +9,7 @@ public class UnityReadWrite
 
     private string[] loadArray; //variable to store the data read from the file. You can make a method that returns this variable with the data if needed.
 
-    public static void Save(string[] array) //static method so that your able to make reference to the method on any Script making saving easier :)
+    public static void Save(string[] array) //static method so that you're able to make reference to the method on any Script making saving easier :)
     {
         string dir = Path.Combine(Application.persistentDataPath, "data");//The file will be store in a directory called data that below will create if it doesn't exist
         string txtName = "test.text"; //The name of our text file
@@ -52,12 +52,11 @@ public class UnityReadWrite
         if (!File.Exists(path)) // Also validate that the file exist
         {
             Debug.Log("File Not Found!");
-            ulInfo = null;
         }
         try
         { 
             loadArray = File.ReadAllLines(path); //This will retrieve all the elements of the text file. 
-                                                //Remember that we saved by adding lines after each item? This will ensure that load it exactly as we saved it.
+                                                //Remember that we saved by adding lines after each item? This will ensure to load it exactly as we saved it.
                                                 //You could also use StreamReader to read the text file but that didn't work as expected for me.
 
             for(int i = 0; i<loadArray.Length; i++) //This for loop is for testing purposes. Just to ensure we retrieve the data correctly
